@@ -160,7 +160,39 @@ class _ShoppingListState extends State<ShoppingList> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Shopping List'),
+        title: new Text('Study Flutter List'),
+        actions: <Widget>[
+          new IconButton(
+              icon: Icon(Icons.menu), 
+              onPressed: () {
+                //Scaffold.of(context).showSnackBar(new SnackBar(content: new Text('cwli study flutter')));
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return new SimpleDialog(
+                        title: Center(
+                          child: Text('Google flutter technology'),
+                        ),
+                        backgroundColor: Colors.red[500],
+                        titlePadding: EdgeInsets.all(10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                        ),
+                        elevation: 2,
+                        children: <Widget>[
+                          ListTile(
+                            title: Center(child: Text('Study')),
+                          ),
+                          ListTile(
+                            title: Center(child: Text('Flutter')),
+                          ),
+                        ],
+                      );
+                    },
+                );
+              }
+          ),
+        ],
       ),
       body: new ListView(
         padding: new EdgeInsets.symmetric(vertical: 8.0),
