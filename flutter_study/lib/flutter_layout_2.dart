@@ -128,7 +128,7 @@ class FlutterLayoutTwo extends StatelessWidget {
       fit: BoxFit.cover,
     );
 
-    
+
     // 项目地址：https://github.com/flutter/website/tree/master/examples/layout/container
     Widget _buildDecoratedImage(int imageIndex) => Expanded(
       child: Container(

@@ -1,59 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
+
 import 'cook_book.dart';
 import 'animated_sample.dart';
 import 'preferredsize_sample.dart';
 import 'expansion_sample.dart';
 import 'flutter_layout_1.dart';
 import 'flutter_layout_2.dart';
+import 'flutter_gridview.dart';
+import 'card_and_stack.dart';
 
 
 //void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = false; // Set to true for visual layout
+  runApp(DemoApp());
+}
 
-void main() => runApp(
-  new MaterialApp(
-    title: 'My app',
-    //home: new TutorialHome(),
-    home: new ShoppingList(
-      products: <Product>[
-        new Product(name: 'Grid List'),
-        new Product(name: 'Every Button'),
-        new Product(name: 'Dismissable'),
-        new Product(name: 'Page Pass'),
-        new Product(name: 'Back Value'),
-        new Product(name: 'Http Request'),
-        new Product(name: 'Animation sample'),
-        new Product(name: 'PreferredSize sample'),
-        new Product(name: 'BasicAppBar sample'),
-        new Product(name: 'Expansion sample'),
-        new Product(name: 'Tabbed AppBar sample'),
-        new Product(name: 'Flutter Layout one'),
-        new Product(name: 'Flutter Layout Two'),
-      ],
-    ),
-    routes: {
-      'GridListRoute': (BuildContext context) => new GridListDemo(),
-      'TutorialRoute': (BuildContext context) => new TutorialHome(),
-      'DismissableRoute': (BuildContext context) => new DismissAbleDemo(items: new List<String>.generate(20, (i) => "Item ${i + 1}")),
-      'BackValueRoute': (BuildContext context) => new HomeScreen(),
-      'HttpRequestRoute': (BuildContext context) => new HttpRequestDemo(),
-      'AnimatedRoute': (BuildContext context) => new AnimatedListSample(),
-      'PreferredRoute': (BuildContext context) => new AppBarBottomSample(),
-      'AppBarRoute': (BuildContext context) => new BasicAppBarSample(),
-      'ExpantionRoute': (BuildContext context) => new ExpansionTileSample(),
-      'TabbedAppbarRoute': (BuildContext context) => new TabbedAppBarSample(),
-      'FlutterLayoutOneRoute': (BuildContext context) => new FlutterLayoutOne(),
-      'FlutterLayoutTwoRoute': (BuildContext context) => new FlutterLayoutTwo(),
-      'PagePassValueRoute': (BuildContext context) => new TodosScreen(
-          todos: new List.generate(
-              20,
-              (i) => new Todo(
-                  title: 'Todo $i',
-                  description: 'A description of what needs to be done for Todo $i'),
-          ),
+class DemoApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new MaterialApp(
+      title: 'My app',
+      //home: new TutorialHome(),
+      home: new ShoppingList(
+        products: <Product>[
+          new Product(name: 'Grid List'),
+          new Product(name: 'Every Button'),
+          new Product(name: 'Dismissable'),
+          new Product(name: 'Page Pass'),
+          new Product(name: 'Back Value'),
+          new Product(name: 'Http Request'),
+          new Product(name: 'Animation sample'),
+          new Product(name: 'PreferredSize sample'),
+          new Product(name: 'BasicAppBar sample'),
+          new Product(name: 'Expansion sample'),
+          new Product(name: 'Tabbed AppBar sample'),
+          new Product(name: 'Flutter Layout one'),
+          new Product(name: 'Flutter Layout Two'),
+          new Product(name: 'GridView/ListView'),
+          new Product(name: 'Stack-Card'),
+        ],
       ),
-    },
-  ),
-);
+      routes: {
+        'GridListRoute': (BuildContext context) => new GridListDemo(),
+        'TutorialRoute': (BuildContext context) => new TutorialHome(),
+        'DismissableRoute': (BuildContext context) => new DismissAbleDemo(items: new List<String>.generate(20, (i) => "Item ${i + 1}")),
+        'BackValueRoute': (BuildContext context) => new HomeScreen(),
+        'HttpRequestRoute': (BuildContext context) => new HttpRequestDemo(),
+        'AnimatedRoute': (BuildContext context) => new AnimatedListSample(),
+        'PreferredRoute': (BuildContext context) => new AppBarBottomSample(),
+        'AppBarRoute': (BuildContext context) => new BasicAppBarSample(),
+        'ExpantionRoute': (BuildContext context) => new ExpansionTileSample(),
+        'TabbedAppbarRoute': (BuildContext context) => new TabbedAppBarSample(),
+        'FlutterLayoutOneRoute': (BuildContext context) => new FlutterLayoutOne(),
+        'FlutterLayoutTwoRoute': (BuildContext context) => new FlutterLayoutTwo(),
+        'GridView/ListViewRoute': (BuildContext context) => new FlutterGridViewAndListView(),
+        'Stack-CardRoute': (BuildContext context) => new FStackAndCard(),
+
+        'PagePassValueRoute': (BuildContext context) => new TodosScreen(
+          todos: new List.generate(
+            20,
+                (i) => new Todo(
+                title: 'Todo $i',
+                description: 'A description of what needs to be done for Todo $i'),
+          ),
+        ),
+      },
+    );
+  }
+}
 
 
 class Product {
@@ -166,9 +184,12 @@ class _ShoppingListState extends State<ShoppingList> {
       Navigator.pushNamed(context, 'TabbedAppbarRoute');
     } else if(name == 'Flutter Layout one') {
       Navigator.pushNamed(context, 'FlutterLayoutOneRoute');
-    }
-    else if(name == 'Flutter Layout Two') {
+    } else if(name == 'Flutter Layout Two') {
       Navigator.pushNamed(context, 'FlutterLayoutTwoRoute');
+    }else if(name == 'GridView/ListView') {
+      Navigator.pushNamed(context, 'GridView/ListViewRoute');
+    } else if(name == 'Stack-Card') {
+      Navigator.pushNamed(context, 'Stack-CardRoute');
     }
   }
 
