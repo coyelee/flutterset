@@ -3,6 +3,9 @@ import 'cook_book.dart';
 import 'animated_sample.dart';
 import 'preferredsize_sample.dart';
 import 'expansion_sample.dart';
+import 'flutter_layout_1.dart';
+import 'flutter_layout_2.dart';
+
 
 //void main() => runApp(MyApp());
 
@@ -22,6 +25,9 @@ void main() => runApp(
         new Product(name: 'PreferredSize sample'),
         new Product(name: 'BasicAppBar sample'),
         new Product(name: 'Expansion sample'),
+        new Product(name: 'Tabbed AppBar sample'),
+        new Product(name: 'Flutter Layout one'),
+        new Product(name: 'Flutter Layout Two'),
       ],
     ),
     routes: {
@@ -34,6 +40,9 @@ void main() => runApp(
       'PreferredRoute': (BuildContext context) => new AppBarBottomSample(),
       'AppBarRoute': (BuildContext context) => new BasicAppBarSample(),
       'ExpantionRoute': (BuildContext context) => new ExpansionTileSample(),
+      'TabbedAppbarRoute': (BuildContext context) => new TabbedAppBarSample(),
+      'FlutterLayoutOneRoute': (BuildContext context) => new FlutterLayoutOne(),
+      'FlutterLayoutTwoRoute': (BuildContext context) => new FlutterLayoutTwo(),
       'PagePassValueRoute': (BuildContext context) => new TodosScreen(
           todos: new List.generate(
               20,
@@ -153,6 +162,13 @@ class _ShoppingListState extends State<ShoppingList> {
       Navigator.pushNamed(context, 'AppBarRoute');
     } else if (name == 'Expansion sample') {
       Navigator.pushNamed(context, 'ExpantionRoute');
+    } else if(name == 'Tabbed AppBar sample') {
+      Navigator.pushNamed(context, 'TabbedAppbarRoute');
+    } else if(name == 'Flutter Layout one') {
+      Navigator.pushNamed(context, 'FlutterLayoutOneRoute');
+    }
+    else if(name == 'Flutter Layout Two') {
+      Navigator.pushNamed(context, 'FlutterLayoutTwoRoute');
     }
   }
 
