@@ -9,7 +9,11 @@ import 'flutter_layout_1.dart';
 import 'flutter_layout_2.dart';
 import 'flutter_gridview.dart';
 import 'card_and_stack.dart';
-
+import 'fade_sample.dart';
+import 'painter_sample.dart';
+import 'isolate_sample.dart';
+import 'textfield_sample.dart';
+import 'channel_sample.dart';
 
 //void main() => runApp(MyApp());
 void main() {
@@ -23,7 +27,7 @@ class DemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new MaterialApp(
-      title: 'My app',
+      title: 'My app cwli_1',
       //home: new TutorialHome(),
       home: new ShoppingList(
         products: <Product>[
@@ -42,6 +46,11 @@ class DemoApp extends StatelessWidget {
           new Product(name: 'Flutter Layout Two'),
           new Product(name: 'GridView/ListView'),
           new Product(name: 'Stack-Card'),
+          new Product(name: 'Fade'),
+          new Product(name: 'Painter'),
+          new Product(name: 'Isolate'),
+          new Product(name: 'TextField'),
+          new Product(name: 'Channel'),
         ],
       ),
       routes: {
@@ -59,6 +68,11 @@ class DemoApp extends StatelessWidget {
         'FlutterLayoutTwoRoute': (BuildContext context) => new FlutterLayoutTwo(),
         'GridView/ListViewRoute': (BuildContext context) => new FlutterGridViewAndListView(),
         'Stack-CardRoute': (BuildContext context) => new FStackAndCard(),
+        'FadeRoute': (BuildContext context) => new FadeAppTest(),
+        'PainterRoute': (BuildContext context) => new PainterWidget(),
+        'IsolateRoute': (BuildContext context) => new IsolateAppPage(),
+        'TextFieldRoute': (BuildContext context) => new TextFieldSample(),
+        'ChannelRoute': (BuildContext context) => new ChannelSample(),
 
         'PagePassValueRoute': (BuildContext context) => new TodosScreen(
           todos: new List.generate(
@@ -156,7 +170,7 @@ class _ShoppingListState extends State<ShoppingList> {
     });
 
     String name = product.name;
-    if(name == 'Grid List') {
+    if(name == 'Grid List study') {
       //Navigator.pushNamed(context, 'GridListRoute');
       Navigator.push(
           context,
@@ -190,7 +204,18 @@ class _ShoppingListState extends State<ShoppingList> {
       Navigator.pushNamed(context, 'GridView/ListViewRoute');
     } else if(name == 'Stack-Card') {
       Navigator.pushNamed(context, 'Stack-CardRoute');
+    }else if(name == 'Fade') {
+      Navigator.pushNamed(context, 'FadeRoute');
+    }else if(name == 'Painter') {
+      Navigator.pushNamed(context, 'PainterRoute');
+    }else if(name == 'Isolate') {
+      Navigator.pushNamed(context, 'IsolateRoute');
+    }else if(name == 'TextField') {
+      Navigator.pushNamed(context, 'TextFieldRoute');
+    }else if(name == 'Channel') {
+      Navigator.pushNamed(context, 'ChannelRoute');
     }
+
   }
 
   @override
